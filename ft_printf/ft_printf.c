@@ -6,7 +6,7 @@
 /*   By: bclarind <bclarind@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 20:01:36 by bclarind          #+#    #+#             */
-/*   Updated: 2021/11/08 13:25:49 by bclarind         ###   ########.fr       */
+/*   Updated: 2021/12/16 16:17:05 by bclarind         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,15 @@ int	print_conversions(const char *input, va_list ap)
 	return (count);
 }
 
-int	main_logic(const char *input, va_list ap, int count)
+int	main_ligic(const char *input, va_list ap, int count)
 {
-	while (*input)
+	while (*input && ++count)
 	{
 		if (*input == '%' && *++input)
 			count += print_conversions(input, ap);
 		else
 			ft_putchar_fd(*input, 1);
 		input++;
-		count++;
 	}
 	return (count);
 }
@@ -84,7 +83,7 @@ int	ft_printf(const char *input, ...)
 		return (-1);
 	count = 0;
 	va_start(ap, input);
-	count += main_logic(input, ap, count);
+	count += main_ligic(input, ap, count);
 	va_end(ap);
 	return (count);
 }

@@ -8,7 +8,7 @@ SRC = ft_printf.c print_hexnum.c print_hexnum_p.c \
 		ft_print_void_ptr.c print_number.c print_unsigned_number.c
 OBJ = $(SRC:.c=.o)
 .c.o:
-	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o) 
+	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 $(NAME):    $(OBJ)
 	@make -C $(LIBFT_DIR)
 	@cp $(LIBFT_DIR)$(LIBFT) .
